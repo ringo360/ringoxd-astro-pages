@@ -6,11 +6,14 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview",
+    "preview": "wrangler pages dev ./dist",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^9.0.1",
     "astro": "^4.4.4"
+  },
+  "devDependencies": {
+    "wrangler": "^3.29.0"
   }
 }
