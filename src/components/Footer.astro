@@ -1,0 +1,31 @@
+---
+const name = 'ringo360'
+const repo = 'ringoxd-astro-pages'
+---
+
+<footer>
+  <div class="content">
+	<p>Read if cool - <a href={`https://github.com/${name}/${repo}`}>Source Code</a></p>
+  </div>
+</footer>
+
+<style>
+	footer {
+		margin-top: auto;
+		padding: 1rem;
+	}
+	.content {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		text-align: center;
+		margin: 0 lem;
+	}
+	a {
+		color: rgb(250, 206, 250)
+	}
+	a:hover {
+		color: rgb(236, 59, 224)
+	}
+</style>
