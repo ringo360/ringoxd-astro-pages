@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Card from '../components/Card.astro';
 ---
 
-<Layout title="ringoXD's profile page.">
+<Layout title="ringoXD's profile page." description='Wanna know about me? please visit!'>
 	<main>
 		<h1><span class="text-gradient">Hello Everyone!</span></h1>
 		<p class="instructions">
@@ -54,6 +54,16 @@ import Card from '../components/Card.astro';
 		width: 220px;
 		height: auto;
 		z-index: -1;
+	}
+	html {
+		font-family: system-ui, sans-serif;
+		/* background: #13151a; */
+		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url("https://cdn.ringoxd.dev/chino-wallpaper.webp");
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		background-repeat: no-repeat;
+		/* background-size: 224px; */
 	}
 	h1 {
 		font-size: 4rem;

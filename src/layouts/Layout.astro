@@ -1,16 +1,17 @@
 ---
-interface Props {
+export interface Props {
 	title: string;
+	description: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Wanna know about me? please visit!" />
+		<meta name="description" content={description} />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" href="./favicon.ico">
 		<link rel="apple-touch-icon" href="./apple-touch-icon.png" sizes="180x180">
@@ -40,7 +41,7 @@ const { title } = Astro.props;
 	html {
 		font-family: system-ui, sans-serif;
 		/* background: #13151a; */
-		background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url("https://cdn.ringoxd.dev/chino-wallpaper.webp");
+		background-color: black;
 		background-size: cover;
 		background-position: center;
 		background-attachment: fixed;
