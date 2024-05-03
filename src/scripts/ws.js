@@ -58,7 +58,7 @@ const map = new Map();
 }();
 
 function update(selector, value = '') {
-	console.log('update')
+	// console.log('update')
     if (Array.isArray(selector)) return selector.forEach(s => update(s, value));
     if (map.get(selector) === value) return;
 	// console.log(selector)
@@ -77,7 +77,7 @@ function update(selector, value = '') {
 }
 
 function setRpcTimestamp(timestamp) {
-	console.log('timestamp')
+	// console.log('timestamp')
     if (!timestamp) {
         update('#timestamp');
         return map.delete('timestamp');

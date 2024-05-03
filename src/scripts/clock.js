@@ -1,6 +1,4 @@
-console.log('Fire')
 function clock() {
-	console.log('tik tak')
 	const padZero = (value) => value.toString().padStart(2, "0");
 	const now = new Date();
 	const hour = padZero(now.getHours());
@@ -11,7 +9,5 @@ function clock() {
 	let txt = document.querySelector('#clock')
 	txt.textContent = currTime;
 }
-
-console.log('uwu')
 clock()
 setInterval(clock, 1000)
