@@ -26,7 +26,7 @@ import Card from '../components/Card.astro';
 						<p>
 							<span id="dot"></span>
 							<span id="name"></span>
-							<span> - </span>
+							<span id="xbar"> - </span>
 							<span id="status"></span>
 							<b id="activity"></b>
 							<span id="small_image"></span>
@@ -351,6 +351,13 @@ import Card from '../components/Card.astro';
 		#small_image {
 			margin-bottom: -0.2em;
 			margin-left: -0.2em;
+		}
+		.info {
+			display: none;
+		}
+		#xbar {
+			display: block;
+			height: 0px;
 		}
 	}
 </style>
