@@ -6,6 +6,7 @@ import Card from '../components/Card.astro';
 ---
 
 <script src="../scripts/ws.js"></script>
+<script src="../scripts/clock.js"></script>
 <Layout title="ringoXD's profile page." description='My bio page'>
 	<main>
 		<h1><span class="text-gradient">Hello Everyone!</span></h1>
@@ -14,30 +15,37 @@ import Card from '../components/Card.astro';
 			Learning <code>Javascript</code> and some languages.<br />
 			<strong>Big project:</strong> Sekai.Explode is my big project and is still under active development!
 		</p>
-		<div class="widget js" style="--columns 4; height: 178px;">
+		<div class="widget js" style="--columns 4; height: 278px;">
 			<div id="discord">
 				<div class="content">
 					<div class="icon">
 						<img src="https://cdn.ringoxd.dev/ringoxd.png" draggable="false">
 					</div>
 					<div class="meta">
-						<b id="name"></b>
+						<!-- <b id="name"></b> -->
 						<p>
 							<span id="dot"></span>
+							<span id="name"></span>
+							<span> - </span>
 							<span id="status"></span>
 							<b id="activity"></b>
+							<span id="small_image"></span>
 						</p>
 					</div>
 				</div>
 				<div class="rpc">
-					<div>
-						<div id="large_image"></div>
-						<div id="small_image"></div>
-					</div>
 					<div class="meta">
 						<div id="details"></div>
-						<div id="state"></div>
-						<div id="timestamp"></div>
+						<span id="state"></span>
+						<span> - </span>
+						<span id="timestamp"></span>
+						<div id="large_image"></div>
+					</div>
+				</div>
+				<div class="meta">
+					<div class="info">
+						<div id="timeis">Time is:</div>
+						<div id="clock"></div>
 					</div>
 				</div>
 			</div>
@@ -155,6 +163,7 @@ import Card from '../components/Card.astro';
 	    transition: transform .2s linear, background-color .2s linear;
 	    border-radius: 24px;
 	    background-color: #23262d;
+	    /* height: calc(var(--square-size) * var(--r) + var(--gap) * (var(--r) - 1)); */
 	    height: calc(var(--square-size) * var(--r) + var(--gap) * (var(--r) - 1));
 	    overflow: hidden;
 	    color: #fff;
@@ -178,7 +187,7 @@ import Card from '../components/Card.astro';
 	    padding: 24px;
 	    width: 100%;
 	    height: 100%;
-	    color: #000;
+	    color: #ffffff;
 	}
 
 	.widget a[href='#'] {
@@ -199,6 +208,14 @@ import Card from '../components/Card.astro';
 	.widget .content {
 	    display: flex;
 	    flex-direction: column;
+	}
+	#discord b+p {
+		color: rgba(255, 255, 255, 0.719)255, 255, 255, 0.733);
+	}
+
+	#discord h1,
+	#discord p {
+		margin: 0;
 	}
 
 	.widget .icon {
@@ -259,35 +276,82 @@ import Card from '../components/Card.astro';
 		padding: 24px;
 		width: 100%;
 		height: 100%;
+		flex-grow: 1;
 	}
 	#discord .content {
 		flex-direction: row;
+		/* border: 2px solid red; */
 	}
 	#discord .meta {
 		margin-top: 0;
-		margin-left: 14px
+		margin-left: 14px;
 	}
 	#discord .rpc {
 		display: flex;
 		flex-direction: row;
-		margin-top: 10px;
-		white-space: nowrap;
+		margin-top: 0px;
+		/* white-space: nowrap; */
+		/* border: 2px solid red; */
 	}
 	#discord .rpc .meta {
-		color: #000b;
+		color: rgba(255, 255, 255, 0.733);
 	}
+	.info {
+		display: flex;
+		justify-content: flex-end;
+		color: rgba(255, 255, 255, 0.116);
+	}
+	.info #timeis {
+		margin-top: -4.5em;
+		margin-right: -2em;
+	}
+	.info #clock {
+		font-size: 5em;
+		margin-top: -1em;
+		/* margin-right: 1em; */
+		
+	}
+
 	#large_image {
+		display: flex;
 		border-radius: 10px;
+		/* border: 2px solid magenta; */
 		background: var(--image) center/cover no-repeat;
+		/* margin-left:auto; */
+		/* justify-content: flex-end; */
+		/*
+		width: 72px;
+		height: 72px;
+		*/
+		width: 72px;
+		height: 72px;
+		/*
+		margin-right: -10em;
+		*/
+
+		margin-top: 1em;
 	}
 	#small_image {
-		position: relative;
-		top: -22px;
-		left: 50px;
+		display: inline-block;
+		/* position: relative; */
+		/* border: 2px solid blue; */
+		/* top: -22px; */
+		/* left: 50px; */
 		border-radius: 50%;
 		background: var(--image) center/cover no-repeat;
-		width: 30px;
-		height: 30px;
+		width: 25px;
+		height: 25px;
+		margin-bottom: -0.1em;
+		margin-left: -0.1em;
+	}
+	@media (width < 880px) {
+	    #large_image {
+			display: none;
+		}
+		#small_image {
+			margin-bottom: -0.2em;
+			margin-left: -0.2em;
+		}
 	}
 </style>
 

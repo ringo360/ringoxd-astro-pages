@@ -1,6 +1,15 @@
 const map = new Map();
 (window.setScroll = () => document.body.style.setProperty('--scroll', scrollY / innerHeight))();
 ['scroll', 'resize'].forEach(e => addEventListener(e, setScroll));
+
+!function setClock() {
+    const date = new Date();
+    const time = date.getTime();
+    setRpcTimestamp(map.get('timestamp'));
+    setTimeout(setClock, 1000 - time % 1000);
+}();
+
+
 !function lanyard() {
 	console.log('Called')
     const ActivityType = ['Playing', 'Streaming to', 'Listening to', 'Watching', 'Custom status', 'Competing in'];
