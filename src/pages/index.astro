@@ -2,8 +2,10 @@
 import Layout from '../layouts/Layout.astro';
 import Footer from '../components/Footer.astro';
 import Card from '../components/Card.astro';
+
 ---
 
+<script src="../scripts/ws.js"></script>
 <Layout title="ringoXD's profile page." description='My bio page'>
 	<main>
 		<h1><span class="text-gradient">Hello Everyone!</span></h1>
@@ -12,6 +14,35 @@ import Card from '../components/Card.astro';
 			Learning <code>Javascript</code> and some languages.<br />
 			<strong>Big project:</strong> Sekai.Explode is my big project and is still under active development!
 		</p>
+		<div class="widget js" style="--columns 4; height: 178px;">
+			<div id="discord">
+				<div class="content">
+					<div class="icon">
+						<img src="https://cdn.ringoxd.dev/ringoxd.png" draggable="false">
+					</div>
+					<div class="meta">
+						<b id="name"></b>
+						<p>
+							<span id="dot"></span>
+							<span id="status"></span>
+							<b id="activity"></b>
+						</p>
+					</div>
+				</div>
+				<div class="rpc">
+					<div>
+						<div id="large_image"></div>
+						<div id="small_image"></div>
+					</div>
+					<div class="meta">
+						<div id="details"></div>
+						<div id="state"></div>
+						<div id="timestamp"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
 		<ul role="list" class="link-card-grid">
 			<Card
 			href="https://github.com/TeamSekai/Sekai.Explode"
@@ -115,4 +146,149 @@ import Card from '../components/Card.astro';
 		gap: 2rem;
 		padding: 0;
 	}
+	.widget {
+	    --square-size: calc((((min(1280px, 100vw - 100px) - (60px * 11)) / 12) * 8 + (60px - var(--gap)) * 7) / 8);
+	    --c: min(var(--columns, 2), var(--template-columns));
+	    --r: var(--rows, 2);
+	    grid-row: span var(--r);
+	    grid-column: span var(--c);
+	    transition: transform .2s linear, background-color .2s linear;
+	    border-radius: 24px;
+	    background-color: #23262d;
+	    height: calc(var(--square-size) * var(--r) + var(--gap) * (var(--r) - 1));
+	    overflow: hidden;
+	    color: #fff;
+	}
+
+	@media (width < 1300px) {
+	    .widget {
+	        --square-size: calc((min(950px, 100vw - 100px) - (var(--gap) * 7)) / 8);
+	    }
+	}
+
+	@media (width < 880px) {
+	    .widget {
+	        --square-size: calc((max(320px, min(480px, calc(100vw - 50px))) - (var(--gap) * 3)) / 4);
+	    }
+	}
+	.widget a {
+	    display: flex;
+	    flex-direction: row;
+	    box-sizing: border-box;
+	    padding: 24px;
+	    width: 100%;
+	    height: 100%;
+	    color: #000;
+	}
+
+	.widget a[href='#'] {
+	    pointer-events: none;
+	}
+
+	.widget a[aria-label] {
+	    box-sizing: border-box;
+	    padding: 0;
+	}
+
+	.widget a[aria-label] .image {
+	    background: var(--bg) center/contain no-repeat;
+	    width: 100%;
+	    height: 100%;
+	}
+
+	.widget .content {
+	    display: flex;
+	    flex-direction: column;
+	}
+
+	.widget .icon {
+	    display: flex;
+	    justify-content: center;
+	    align-items: center;
+	    border-radius: 10px;
+	    width: 40px;
+	    height: 40px;
+	    overflow: hidden;
+	    color: #fff;
+	}
+
+	.widget .icon svg {
+	    width: var(--size, 70%);
+	    height: var(--size, 70%);
+	}
+
+	.widget .icon img {
+	    width: 100%;
+	    height: 100%;
+	}
+
+	.widget .meta {
+	    margin-top: 10px;
+	}
+
+	.widget[style*='--rows: 1;'] .content {
+	    flex-direction: row;
+	    align-items: center;
+	}
+
+	.widget[style*='--rows: 1;'] .meta {
+	    margin-top: 0;
+	    margin-left: 20px;
+	    white-space: nowrap;
+	}
+
+	@media (width < 880px) {
+	    .widget[style*='--m-'] {
+	        --c: min(var(--m-columns, 2), var(--template-columns));
+	        --r: var(--m-rows, 2);
+	    }
+	}
+
+	
+	#dot {
+		display: inline-block;
+		margin-right: .1em;
+		border-radius: 50%;
+		width: .6em;
+		height: .6em
+	}
+	#discord {
+		display: flex;
+		flex-direction: column;
+		box-sizing: border-box;
+		padding: 24px;
+		width: 100%;
+		height: 100%;
+	}
+	#discord .content {
+		flex-direction: row;
+	}
+	#discord .meta {
+		margin-top: 0;
+		margin-left: 14px
+	}
+	#discord .rpc {
+		display: flex;
+		flex-direction: row;
+		margin-top: 10px;
+		white-space: nowrap;
+	}
+	#discord .rpc .meta {
+		color: #000b;
+	}
+	#large_image {
+		border-radius: 10px;
+		background: var(--image) center/cover no-repeat;
+	}
+	#small_image {
+		position: relative;
+		top: -22px;
+		left: 50px;
+		border-radius: 50%;
+		background: var(--image) center/cover no-repeat;
+		width: 30px;
+		height: 30px;
+	}
 </style>
+
+
