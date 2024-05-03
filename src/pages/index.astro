@@ -116,3 +116,30 @@ import Card from '../components/Card.astro';
 		padding: 0;
 	}
 </style>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-43R6LDMRBM"></script>
+<script>
+	/*
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-43R6LDMRBM');
+  */
+	declare global {
+		interface Window {
+			dataLayer: any[];
+		}
+	}
+
+	// Google tag (gtag.js)
+	const gtag = (...args: any[]) => {
+	  window.dataLayer.push(args);
+	};
+
+	window.dataLayer = window.dataLayer || [];
+	gtag('js', new Date());
+	gtag('config', 'G-43R6LDMRBM');
+
+</script>
